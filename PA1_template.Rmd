@@ -26,6 +26,7 @@ Generate sums of steps per day, histogram, median, and mean.
 
 ```{r, echo=TRUE}
 stepSum <- tapply(activ$steps, activ$date, sum)
+par(mfrow = c(1, 1))
 hist(stepSum, ylab="Frequency(# of days)", xlab="Total steps in given day", main="Histogram of Steps per Day", breaks=25)
 stepsMean <- mean(stepSum, na.rm=T)
 stepsMedian <- median(stepSum, na.rm=T)
@@ -54,6 +55,7 @@ Use strategy of filling in the avg steps/interval for that day to replace NA.  D
 
 ```{r, echo=TRUE}
 sum(is.na(activ$steps))
+intervAvg <- tapply(activ$steps, activ$interval, mean, na.rm=TRUE)
 mean(intervAvg)
 count1 = 0
 count2 = 0
