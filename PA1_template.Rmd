@@ -44,7 +44,7 @@ Identify the time interval with the most average steps.
 averages <- aggregate(x = list(steps = activ$steps), by = list(interval = activ$interval), FUN = mean, na.rm = T)
 plot(averages, main="Time Series of Avg # of Steps in Time Interval", xlab = "Time Interval of Day (points represent 5 min each)", ylab="Avg. Number of Steps")
 max(averages$steps)
-averages[which.max(averages$steps), ]
+which.max(averages$steps)
 ```
 
 ## Imputing missing values
